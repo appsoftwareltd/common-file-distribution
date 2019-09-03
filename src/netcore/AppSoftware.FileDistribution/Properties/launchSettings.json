@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AppSoftware.FileDistribution": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\gbro11\\source\\repos\\AppSoftware.FileDistribution\\AppSoftware.FileDistribution\\FileDistributions.json\""
+    }
+  }
+}

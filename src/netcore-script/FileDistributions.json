@@ -1,0 +1,8 @@
+﻿{
+  "Distributions": [
+    {
+      "SourceDirectory": "C:\\Users\\gbro11\\Desktop\\Source",
+      "DestinationDirectories": [ "C:\\Users\\gbro11\\Desktop\\Dest1", "C:\\Users\\gbro11\\Desktop\\Dest2" ]
+    }
+  ]
+}
