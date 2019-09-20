@@ -1,6 +1,19 @@
 # AppSoftware File Distribution
 
-A simple utility for copying files from a one or more source directories to one or more destination directories (per source).
+A simple utility for copying files from a one or more source directories to one or more destination directories (per source). A need to replicate core files among applications in microservice architecture was the inspiration for this project.
+
+#### Example distribution configuration file:
+
+    {
+      "Distributions": [
+        {
+
+          "SourceDirectory": "C:\\Users\\me\\Desktop\\SrcExample",
+          "DestinationDirectories": [ "C:\\Users\\me\\Desktop\\DestExample1", "C:\\Users\\me\\Desktop\\DestExample2" ],
+          "FileNameMaskRegex": ".+\\.cs"
+        }
+      ]
+    }
 
 ## Running dotnet-script version
 
@@ -23,3 +36,8 @@ Run ```> dotnet script app.csx```
 Since dotnet-script allows for running of scripts from remote locations, you can run the .csx script file without downloading this repository. You will need a copy of a file in the FileDistributions.json format to direct the file dsitribution.   
 
 ```> dotnet script https://raw.githubusercontent.com/garethrbrown/app-software-file-distribution/master/src/netcore-script/app.csx "C:\Path\To\FileDistributions.json"```
+
+
+### Change log
+
+2019/09/20 Added regex file name mask capability
