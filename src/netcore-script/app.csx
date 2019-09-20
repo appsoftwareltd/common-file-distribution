@@ -99,6 +99,8 @@ public class ConfigurationFile
 
 public class Distribution
 {
+	public string FileNameMaskRegex { get; set; }
+
     public string SourceDirectory { get; set; }
 
     public IList<string> DestinationDirectories { get; set; }
