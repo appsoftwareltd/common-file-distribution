@@ -2,7 +2,7 @@
   "profiles": {
     "AppSoftware.FileDistribution": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\gbro11\\source\\repos\\AppSoftware.FileDistribution\\AppSoftware.FileDistribution\\FileDistributions.json\""
+      "commandLineArgs": "\"C:\\Users\\gbro11\\src\\app-software-file-distribution\\src\\netcore\\AppSoftware.FileDistribution\\FileDistributions.json\""
     }
   }
 }
