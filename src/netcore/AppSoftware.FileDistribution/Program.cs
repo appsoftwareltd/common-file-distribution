@@ -11,6 +11,8 @@ namespace AppSoftware.FileDistribution
         {
             try
             {
+                Console.ForegroundColor = ConsoleColor.White;
+
                 string configurationFilePath = args[0];
 
                 string configurationFileText = File.ReadAllText(configurationFilePath);
@@ -29,7 +31,7 @@ namespace AppSoftware.FileDistribution
                             {
                                 directoriesVerifiedExisting = false;
 
-                                Console.WriteLine($"Could not find destination directory {destinationDirectory}. No files copied for this distribution.");
+                                ConsoleWriteErrorLine($"Could not find destination directory {destinationDirectory}. No files copied for this distribution.");
                             }
                         }
                     }
@@ -37,12 +39,12 @@ namespace AppSoftware.FileDistribution
                     {
                         directoriesVerifiedExisting = false;
 
-                        Console.WriteLine($"Could not find source directory {distribution.SourceDirectory}. No files copied for this distribution.");
+                        ConsoleWriteErrorLine($"Could not find source directory {distribution.SourceDirectory}. No files copied for this distribution.");
                     }
 
                     if (directoriesVerifiedExisting)
-                    { 
-                        Console.WriteLine($"Source directory is {distribution.SourceDirectory}");
+                    {
+                        ConsoleWriteInfoLine($"Source directory is {distribution.SourceDirectory}");
 
                         foreach (var sourceFilePath in Directory.GetFiles(distribution.SourceDirectory))
                         {
@@ -52,7 +54,7 @@ namespace AppSoftware.FileDistribution
 
                             if (string.IsNullOrWhiteSpace(distribution.FileNameMaskRegex) || Regex.IsMatch(sourceFileName, distribution.FileNameMaskRegex))
                             {
-                                Console.WriteLine($"File name mask regex is {distribution.FileNameMaskRegex}");
+                                ConsoleWriteInfoLine($"File name mask regex is {distribution.FileNameMaskRegex}");
                             }
 
                             if (string.IsNullOrWhiteSpace(distribution.FileNameMaskRegex) || Regex.IsMatch(sourceFileName, distribution.FileNameMaskRegex))
@@ -61,14 +63,14 @@ namespace AppSoftware.FileDistribution
                                 {
                                     string destinationFilePath = Path.Combine(destinationDirectory, sourceFileName);
 
-                                    Console.WriteLine($"Copying {sourceFileName} to {destinationDirectory}");
+                                    ConsoleWriteInfoLine($"Copying {sourceFileName} to {destinationDirectory}");
 
                                     File.Copy(sourceFilePath, destinationFilePath, overwrite: true);
                                 }
                             }
                             else
                             {
-                                Console.WriteLine($"Skipping {sourceFileName} as did not match File name mask regex");
+                                ConsoleWriteWarningLine($"Skipping {sourceFileName} as did not match File name mask regex");
                             }
                         }
                     }
@@ -76,16 +78,41 @@ namespace AppSoftware.FileDistribution
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error {ex.Message}");
+                ConsoleWriteErrorLine($"Error {ex.Message}");
             }
 
             #if DEBUG
 
-            Console.WriteLine("Press any key to exit");
+            ConsoleWriteInfoLine("Press any key to exit");
 
             Console.ReadKey();
 
             #endif
+        }
+
+        public static void ConsoleWriteInfoLine(string str)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine(str);
+        }
+
+        public static void ConsoleWriteWarningLine(string str)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine(str);
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void ConsoleWriteErrorLine(string str)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine(str);
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
