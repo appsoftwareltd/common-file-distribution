@@ -6,6 +6,9 @@ print("x is " + str(x))
 # Parsing command line arguments
 # https://stackoverflow.com/questions/1009860/how-to-read-process-command-line-arguments
 
+# Console colour (see high voted answer)
+# https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python
+
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
