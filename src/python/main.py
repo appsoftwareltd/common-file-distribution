@@ -9,6 +9,9 @@ print("x is " + str(x))
 # Console colour (see high voted answer)
 # https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python
 
+# Or
+# https://stackoverflow.com/questions/37340049/how-do-i-print-colored-output-to-the-terminal-in-python/37340245
+
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
