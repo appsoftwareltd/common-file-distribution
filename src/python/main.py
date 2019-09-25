@@ -40,15 +40,35 @@ print("Configuration file is:" + args.configuration_file_path)
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-configuration_json = open(os.path.join(__location__, args.configuration_file_path), 'r')
+configuration_json = open(os.path.join(__location__, args.configuration_file_path), 'r').read()
+
+# configuration_json_str = str(configuration_json)
 
 #configuration_file1 = ConfigurationFile()
-configuration_file2 = ConfigurationFile(configuration_json)
+configuration_file = ConfigurationFile(configuration_json)
 
-distribution = Distribution()
+# Options for deserializing json
+# https://stackoverflow.com/questions/17156078/converting-identifier-naming-between-camelcase-and-underscores-during-json-seria/17156414
+
+# https://stackoverflow.com/questions/18294534/is-there-a-foreach-function-in-python-3
+
+for distribution in configuration_file.distributions:
+
+    # https://stackoverflow.com/questions/8933237/how-to-find-if-directory-exists-in-python
+
+    print(os.path.exists(distribution.source_directory))
+
+    #if os.path.exists(distribution.source_directory)
+    #    print("exists")
+
+# now loop through the distributions, moving files as appropriate
+
+# configuration_file.
+
+# distribution = Distribution()
 
 #print(configuration_file1)
-print(configuration_file2)
+#print(configuration_file2)
 print(distribution)
 
 
