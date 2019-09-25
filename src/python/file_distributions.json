@@ -1,0 +1,10 @@
+{
+    "Distributions": [
+      {
+  
+        "SourceDirectory": "C:\\Users\\gbro11\\Desktop\\SrcExample",
+        "DestinationDirectories": [ "C:\\Users\\gbro11\\Desktop\\DestExample1", "C:\\Users\\gbro11\\Desktop\\DestExample2" ],
+        "FileNameMaskRegex": ".+\\.cs"
+      }
+    ]
+  }
