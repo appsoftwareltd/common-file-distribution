@@ -1,4 +1,5 @@
-import json
+# import json
+import yaml # pip install pyyaml
 import os
 
 # Importing and using classes
@@ -40,12 +41,27 @@ print("Configuration file is:" + args.configuration_file_path)
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-configuration_json = open(os.path.join(__location__, args.configuration_file_path), 'r').read()
+configuration_json_file_path = os.path.join(__location__, args.configuration_file_path)
+
+with open(configuration_json_file_path, 'r') as stream:
+    try:
+        #print(yaml.safe_load(stream))
+        # configuration_json = yaml.safe_load(stream)
+
+        yaml_value = yaml.safe_load(stream)
+
+        configuration_file = ConfigurationFile(yaml_value)
+
+        print(configuration_file)
+    except yaml.YAMLError as exc:
+        print(exc)
+
+# configuration_json = open(os.path.join(__location__, args.configuration_file_path), 'r').read()
 
 # configuration_json_str = str(configuration_json)
 
 #configuration_file1 = ConfigurationFile()
-configuration_file = ConfigurationFile(configuration_json)
+#= configuration_file = ConfigurationFile(configuration_json)
 
 # Options for deserializing json
 # https://stackoverflow.com/questions/17156078/converting-identifier-naming-between-camelcase-and-underscores-during-json-seria/17156414

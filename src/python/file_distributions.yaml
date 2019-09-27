@@ -1,0 +1,6 @@
+distributions:
+  - file_name_mask_regex: '.+\.cs'
+    source_directory: 'C:\Users\gbro11\Desktop\SrcExample'
+    destination_directories: 
+      - 'C:\Users\gbro11\Desktop\DestExample1'
+      - 'C:\Users\gbro11\Desktop\DestExample2'
