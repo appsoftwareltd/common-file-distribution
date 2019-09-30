@@ -1,4 +1,4 @@
-# AppSoftware File Distribution
+# Common File Distribution
 
 A simple utility for copying files from a one or more source directories to one or more destination directories (per source). A need to replicate core files among applications in microservice architecture was the inspiration for this project.
 
